@@ -27,8 +27,7 @@ using namespace std;
 			px = rand() % 35;
 			py = rand() % 35;
 			
-			int loc = board[px][py];
-			board[px][py] = 0;   // for now 		
+			int loc = board[px][py];		
 		
 			return loc;
 		}
@@ -36,38 +35,43 @@ using namespace std;
 		void Gmap::printMap() {
 			for (int i = 0; i < SIZE; i++) {
 				for (int j = 0; j < SIZE; j++) {
-					int terrain = board[i][j];
-					switch (terrain) {
-						case 0:
-							cout << " P ";
-							break;
-						case 1:
-							cout << " # ";
-							break;
-						case 2:
-							cout << " \" ";
-							break;
-						case 3: 
-							cout << " - ";
-							break;
-						case 4:
-							cout << " ~ ";
-							break;
-						case 5:
-							cout << " = ";
-							break;
-						case 6:
-							cout << " ^ ";
-							break;
-						case 7: 
-							cout << " + ";
-							break;
-						case 8: 
-							cout << " o ";
-							break;
-						default:
-							cout << " ? ";
-					} // switch
+					if (px == i && py == j) {
+						cout << " P ";
+					} else {
+						int terrain = board[i][j];
+						switch (terrain) {
+							case 0:
+								cout << " P ";
+								break;
+							case 1:
+								cout << " # ";
+								break;
+							case 2:
+								cout << " \" ";
+								break;
+							case 3: 
+								cout << " - ";
+								break;
+							case 4:
+								cout << " ~ ";
+								break;
+							case 5:
+								cout << " = ";
+								break;
+							case 6:
+								cout << " ^ ";
+								break;
+							case 7: 
+								cout << " + ";
+								break;
+							case 8: 
+								cout << " o ";
+								break;
+							default:
+								cout << " ? ";
+						} // switch
+					
+					} // if ... else
 
 				}
 				cout << endl;
