@@ -22,6 +22,8 @@ class Gmap {
 		void printMap();
 		
 		void saveMap(string outputfile);
+		
+		void readMap(string inputfile);
 
 };
 

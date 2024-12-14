@@ -33,6 +33,9 @@ int main() {
 	} else if (choice == 2){
 		// try to open the map file and handle errors appropriately
 		cout << "Let's see the map ....\n";
+		holiday.readMap(map_file);
+		cout << "This should be the map ...." << endl;
+		holiday.printMap();
 	} else {
 		cout << "Exiting\n";
 		return 0;

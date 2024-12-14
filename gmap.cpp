@@ -90,7 +90,7 @@ using namespace std;
 			
 		   // Check if the file opened successfully
    		   if (!output.is_open()) {
-        		std::cerr << "Error opening file!" << endl;
+        		std::cerr << "Error saving " << outputfile << endl;
         		return;
     		}
 			
@@ -109,6 +109,29 @@ using namespace std;
 			}  // output opened successfully
 			
 		} // end method
+		
+		void Gmap::readMap(string inputfile)  {
+			// open file for reading
+			ifstream input(inputfile);
+			
+			// Opened successfully?
+			if (!input.is_open()) {
+				cerr << "Error reading " << inputfile << endl;
+				return;
+			} else {
+				for (int i = 0; i < SIZE; i++) {
+					for (int j = 0; j < SIZE; j++) {
+						input >> board[i][j];
+					}
+				}
+				
+				// player position
+				input >> px;
+				input >> py;
+			
+			}
+		
+		} // readMap
 
 		
 		
