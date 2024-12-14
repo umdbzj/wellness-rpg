@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib> 
+#include <string>
 #include "gmap.hpp"
 
 using namespace std;
@@ -48,16 +49,8 @@ int main() {
 		cin >> choice;
 		switch (choice) {
 			case 0: 
-				save_map.open(map_file);
-				if (save_map) {
-					for (int i = 0; i < SIZE; i++) {
-						for (int j = 0; j < SIZE; j++) {
-							save_map << 0 << " ";
-						}
-						
-						save_map << endl;
-					}
-				} // if we opened the file
+				holiday.saveMap(map_file);
+				return 0; 
 				break;
 			case 1:
 				cout << "Will need to move the player\n";

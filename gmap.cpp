@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib> 
+#include <string>
 #include "gmap.hpp"
 
 using namespace std;
@@ -81,3 +82,33 @@ using namespace std;
 			
 		
 		} // printing
+		
+		void Gmap::saveMap(string outputfile) {
+		
+			// open the map file for printing		
+			ofstream output(outputfile);
+			
+		   // Check if the file opened successfully
+   		   if (!output.is_open()) {
+        		std::cerr << "Error opening file!" << endl;
+        		return;
+    		}
+			
+			if (output.is_open()) {
+				for (int i = 0; i < SIZE; i++) {
+					for (int j = 0; j < SIZE; j++) {
+						output << board[i][j] << " ";
+					}		
+				output << endl;  
+				}  // printed the table
+				
+				output << px << " " << py;  // player position
+				
+				output.close();
+				
+			}  // output opened successfully
+			
+		} // end method
+
+		
+		
