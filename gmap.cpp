@@ -41,7 +41,7 @@ using namespace std;
 						int terrain = board[i][j];
 						switch (terrain) {
 							case 0:
-								cout << " P ";
+								cout << " _ ";
 								break;
 							case 1:
 								cout << " # ";
