@@ -48,6 +48,7 @@ int main() {
 		cout << "What do you want to do?\n";
 		cout << "0: save and quit\n";
 		cout << "1: move player\n";
+		cout << "2: view map\n";
 		
 		cin >> choice;
 		switch (choice) {
@@ -56,7 +57,11 @@ int main() {
 				return 0; 
 				break;
 			case 1:
-				cout << "Will need to move the player\n";
+				terrain = holiday.movePlayer();
+				holiday.describeLoc(terrain);
+				break;
+			case 2:
+				holiday.printMap();
 				break;
 			default:
 				cout << "Hopefully, we'll never get here\n";

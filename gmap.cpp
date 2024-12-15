@@ -132,6 +132,103 @@ using namespace std;
 			}
 		
 		} // readMap
+		
+		int Gmap::movePlayer() {
+			int direction = 0;
+			cout << "Which direction do you want to move?\n";
+			cout << "0: show the map\n";
+			cout << "1: NW\n";
+			cout << "2: N\n";
+			cout << "3: NE\n";
+			cout << "4: W\n";
+			cout << "6: E\n";
+			cout << "7: SW\n";
+			cout << "8: S\n";
+			cout << "9: SE\n";
+			
+			cin >> direction;
+			
+			switch (direction) {
+				case 0:
+					printMap();
+					break;
+				case 1:
+					px--;
+					py--;
+					break;
+				case 2:
+					px--;
+					break;
+				case 3:
+					px--;
+					py++;
+					break;
+				case 4:
+					py--;
+					break;
+				case 6:
+					py++;
+					break;
+				case 7:
+					px--;
+					py++;
+					break;
+				case 8:
+					py++;
+					break;
+				case 9:
+					px++;
+					py++;
+					break;
+				default:
+					cerr << "Please enter a valid direction\n";
+			}
+			
+			return board[px][py];   // type of terrain
+		}
+		
+		void Gmap::describeLoc(int terrain) {
+		
+			switch (terrain) {
+				case 0:
+					cout << "Congratulations!  You have stumbled upon a fixed teleportion circle\n";
+					break;
+				case 1:
+					cout << "You are standing in a forest with trees extending as far as you can see.\n";
+					cout << "Paths lead in all directions.  You'd better pick one and start walking ";
+					cout << "before something notices you\n";
+					break;
+				case 2:
+					cout << "Expansive grasslands surround you, inviting you to pick a direction ";
+					cout << "in which to explore\n";
+					break;
+				case 3:
+					cout << "You are at a crossroads.  Roads and paths extend in many directions\n";
+					break;
+				case 4:
+					cout << "The water is calm enough for you to swim across.\n";
+					break;
+				case 5: 
+					cout << "Ugh!  The area around you is swampy bog. Too wet to walk over, ";
+					cout << "but not deep enough for swimming.  Thankfully, a boat is tied up nearby.\n";
+					cout << "Start rowing!\n";
+					break;
+				case 6:
+					cout << "Some mountains just need to be climbed.\n";
+					break;
+				case 7:
+					// make the injured party random 
+					cout << "You come across an injured man alongside the path.  Looks like you ";
+					cout << "will need to help him to the hut you can just see in the distance.\n";
+					break;
+				case 8:
+					cout << "You arrive at a small village. At last!  A chance to rest and restock!\n";
+					break;
+				default:
+					cout << "You are standing in a featureless void.  How did you get here?\n";
+			}
+			
+		}
 
 		
 		

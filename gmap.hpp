@@ -24,6 +24,10 @@ class Gmap {
 		void saveMap(string outputfile);
 		
 		void readMap(string inputfile);
+		
+		int movePlayer();
+		
+		void describeLoc(int terrain);
 
 };
 
