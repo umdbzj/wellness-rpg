@@ -34,12 +34,13 @@ using namespace std;
 		}
 		
 		void Gmap::printMap() {
+			int terrain = board[px][py];
 			for (int i = 0; i < SIZE; i++) {
 				for (int j = 0; j < SIZE; j++) {
 					if (px == i && py == j) {
 						cout << " P ";
 					} else {
-						int terrain = board[i][j];
+						terrain = board[i][j];
 						switch (terrain) {
 							case 0:
 								cout << " _ ";
@@ -79,6 +80,8 @@ using namespace std;
 			}	
 			cout << endl;
 			cout << "Player is at: (" << px << ", " << py << ")"  << endl;
+			terrain = board[px][py];
+			describeLoc(terrain);
 			
 		
 		} // printing
