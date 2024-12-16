@@ -18,6 +18,10 @@ using namespace std;
 			
 		} // constructor
 		
+		Gmap::~Gmap() {
+			cout << "Mischief managed\n";
+		}
+		
 		int Gmap::generateMap() {
 			for (int i = 0; i < SIZE; i++) {
 				for (int j = 0; j < SIZE; j++) {

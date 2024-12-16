@@ -5,10 +5,19 @@ test: main.o gmap.o
 	$(CC) $(CFLAGS) -o test main.o gmap.o
 	
 main.o: main.cpp gmap.hpp
-	$(CC) $(CFAGS) -c main.cpp
+	$(CC) $(CFLAGS) -c main.cpp
 	
 gmap.o: gmap.cpp gmap.hpp
-	$(CC) $(CFAGS) -c gmap.cpp
+	$(CC) $(CFLAGS) -c gmap.cpp
+
+test_challenge: test_challenge.o challenge.o
+	$(CC) $(CFLAGS) -o test_challenge test_challenge.o challenge.o
+	
+test_challenge.o: test_challenge.cpp challenge.hpp
+	$(CC) $(CFLAGS) -c test_challenge.cpp
+	
+challenge.o: challenge.cpp challenge.hpp
+	$(CC) $(CFLAGS) -c challenge.cpp
 
 clean:
 	rm *.o 

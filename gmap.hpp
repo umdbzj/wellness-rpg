@@ -17,6 +17,8 @@ class Gmap {
 	public:
 		Gmap();
 		
+		~Gmap();
+		
 		int generateMap();
 		
 		void printMap();
