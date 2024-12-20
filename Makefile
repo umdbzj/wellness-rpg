@@ -18,6 +18,14 @@ test_challenge.o: test_challenge.cpp challenge.hpp
 	
 challenge.o: challenge.cpp challenge.hpp
 	$(CC) $(CFLAGS) -c challenge.cpp
-
+	
+test_die: test_die.o die.o
+	$(CC) $(CFLAGS) -o test_die test_die.o die.o
+	
+test_die.o: test_die.cpp die.hpp
+	$(CC) $(CFLAGS) -c test_die.cpp
+	
+die.o: die.cpp die.hpp
+	$(CC) $(CFLAGS) -c die.cpp
 clean:
 	rm *.o 
