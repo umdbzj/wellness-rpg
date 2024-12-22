@@ -191,7 +191,27 @@ using namespace std;
 					cerr << "Please enter a valid direction\n";
 			}
 			
+			// make sure the player is not attempting to move off the board
+			if (px < 0 || px >= 35 || py < 0 || py >= 35) {
+				cout << "Player location: " << px << ", " << py << " is off the charts.\n";
+				teleportPlayer();
+			}			
+			
 			return board[px][py];   // type of terrain
+		}
+		
+		void Gmap::teleportPlayer() {
+			cout << "You suddenly feel strange ... like your body is dissolving and reforming\n";
+		
+			// get random x and y coordinates  for player
+			int x = rand() % 35;
+			int y = rand() % 35;
+			px = x;
+			py = y;
+			
+			cout << "The moment passes, but you look around and realize your surroundings have changed\n";
+			cout << "Where are you??\n";
+			cout << "Player new location: " << px << ", " << py << endl;
 		}
 		
 		void Gmap::describeLoc(int terrain) {

@@ -10,7 +10,7 @@ int main() {
 
 	srand(time(0));
 
-	char status = 'n';
+	// char status = 'n';
 	int choice = 0;
 	Gmap holiday;
 	string map_file = "map.txt";

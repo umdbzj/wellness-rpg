@@ -29,6 +29,8 @@ class Gmap {
 		
 		int movePlayer();
 		
+		void teleportPlayer();
+		
 		void describeLoc(int terrain);
 
 };
