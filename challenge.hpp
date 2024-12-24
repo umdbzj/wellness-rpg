@@ -8,15 +8,17 @@ using namespace std;
 class Challenge {
 	
 	private:
-		string descrip;
+		string task;
 		int terrain;
+		bool required;
 		bool done;
+		Challenge * next;
 	
 	public:
 		// default constructor so that we can create collections of them unless using a linked list
 		Challenge();
 		
-		Challenge(string descript, int terrain, bool status);
+		Challenge(string todo, int terrain, bool must_complete);
 		
 		~Challenge();
 		
@@ -27,6 +29,8 @@ class Challenge {
 		bool isDone();
 		
 		void changeStatus(bool status);
+		
+		int getTerrain();
 		
 		
 } ;

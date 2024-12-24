@@ -11,7 +11,6 @@ using namespace std;
 int main() {
 
 	srand(time(0));
-	
 
 	// create several challenges
 	Challenge c1("Find a tree and do pullups on a branch", 1, false);

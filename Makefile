@@ -1,10 +1,10 @@
 CC = g++
 CFLAGS = -Wall -std=c++14
 
-test: main.o gmap.o
-	$(CC) $(CFLAGS) -o test main.o gmap.o
+test: main.o gmap.o challenge.o
+	$(CC) $(CFLAGS) -o test main.o gmap.o challenge.o
 	
-main.o: main.cpp gmap.hpp
+main.o: main.cpp gmap.hpp challenge.hpp
 	$(CC) $(CFLAGS) -c main.cpp
 	
 gmap.o: gmap.cpp gmap.hpp
@@ -27,5 +27,6 @@ test_die.o: test_die.cpp die.hpp
 	
 die.o: die.cpp die.hpp
 	$(CC) $(CFLAGS) -c die.cpp
+
 clean:
 	rm *.o 

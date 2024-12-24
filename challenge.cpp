@@ -6,24 +6,30 @@
 using namespace std;
 
 		Challenge::Challenge(){
-			descrip = "A blank piece of parchment falls from the sky into your hands. What could it mean?\n";
+			task = "TBD";
 			terrain = 0;
+			required = false;
 			done = false;
+			next = NULL;
 		
 		}
 		
-		Challenge::Challenge(string descript, int terrain, bool status) {
-			descrip = descript;
+		Challenge::Challenge(string todo, int terrain, bool must_complete) {
+			task = todo;
 			this->terrain = terrain;
-			done = status;
+			required = must_complete;
+			done = false;
+			next = NULL;
 		}
 		
 		Challenge::~Challenge(){
 			// cout << "Well, that was easy!\n";
+			next = NULL;
 		}
 		
 		void Challenge::debugMessage(){
-			cout << "Challenge: " << descrip << " for terrain type: " << terrain << " is ";
+			cout << "Challenge: " << task << " for terrain type: " << terrain;
+			cout << " is ";
 			if (!done) {
 				cout << "not ";
 			}
@@ -31,7 +37,7 @@ using namespace std;
 		}
 		
 		void Challenge::show() {
-			cout << descrip << endl;
+			cout << task << endl;
 		}
 		
 		bool Challenge::isDone() {
@@ -41,4 +47,8 @@ using namespace std;
 		void Challenge::changeStatus(bool status){
 			done = status;
 		
+		}
+		
+		int Challenge::getTerrain() {
+			return terrain;
 		}
