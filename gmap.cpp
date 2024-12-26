@@ -167,8 +167,8 @@ using namespace std;
 					py--;
 					break;
 				case 3:
-					px--;
-					py++;
+					px++;
+					py--;
 					break;
 				case 4:
 					px--;
