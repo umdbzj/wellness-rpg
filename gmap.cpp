@@ -164,17 +164,17 @@ using namespace std;
 					py--;
 					break;
 				case 2:
-					px--;
+					py--;
 					break;
 				case 3:
 					px--;
 					py++;
 					break;
 				case 4:
-					py--;
+					px--;
 					break;
 				case 6:
-					py++;
+					px++;
 					break;
 				case 7:
 					px--;
