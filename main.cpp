@@ -130,8 +130,10 @@ int main() {
 				holiday.printMap();
 				break;
 			case 3: 
-				cout << "Current player status: " << endl;
-				cout << "(Not implemented yet)" << endl;
+				cout << endl;
+				player1.display();
+				cout << endl;
+				break;
 			default:
 				cout << "Hopefully, we'll never get here\n";
 				
