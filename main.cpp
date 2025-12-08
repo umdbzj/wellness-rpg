@@ -105,7 +105,7 @@ int main() {
 				addChallenge(terrain);
 				break;
 			case 2:
-				cout << "All I have is the map so far...." << endl;
+				cout << "The map so far...." << endl;
 				holiday.printMap();
 				break;
 			default:
