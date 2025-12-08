@@ -5,6 +5,7 @@
 #include <vector>
 #include "gmap.hpp"
 #include "challenge.hpp"
+#include "player.hpp"
 
 using namespace std;
 
@@ -61,10 +62,23 @@ int main() {
 	ofstream save_map;
 	int terrain = 0;
 	
+	string user = "";
+	ifstream user_in;
+	ofstream user_save_file;   //both will use the same file name so close the input before saving
+	
 	// start game
 	cout << "\nWelcome to the Wellness RPG!\n";
+	cout << "What is your user login? " << endl;
+	cin >> user;
 	
-	cout << "Starting options\n";
+	// create the player from their file or create a new player
+	cout << endl;
+	Player player1(user);
+	
+	player1.display();
+	
+	
+	cout << "\nStarting options\n";
 	cout << "1: Start a new game\n";
 	cout << "2: Load an existing game\n";
 	cout << "0: Quit\n";
@@ -72,11 +86,12 @@ int main() {
 
 	if (choice == 1) {
 		// create a new player 
+
 		cout << "Creating a new map\n";
 		terrain = holiday.generateMap();
 	} else if (choice == 2){
 		// for now, ask for user name and load the player
-		// echo stats to the sreen
+		// echo stats to the screen
 		// try to open the map file and handle errors appropriately
 		cout << "Let's see the map ....\n";
 		holiday.readMap(map_file);
@@ -103,7 +118,7 @@ int main() {
 			case 0: 
 				holiday.saveMap(map_file);
 				// save player info
-				return 0; 
+				// return 0; 
 				break;
 			case 1:
 				terrain = holiday.movePlayer();
@@ -126,7 +141,7 @@ int main() {
 	
 	} while(choice != 0);   // until asked to quit, run the main program
 	
-	
+	cout << "Current map:" << endl;
 	holiday.printMap();
 	cout << "Player is on terrain type: " << terrain << endl;
 
