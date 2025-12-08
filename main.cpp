@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// might move ... but to what class?
 int addChallenge(int terrain) {
 
 	// create several challenges
@@ -70,9 +71,12 @@ int main() {
 	cin >> choice;       // need to handle possible error here
 
 	if (choice == 1) {
+		// create a new player 
 		cout << "Creating a new map\n";
 		terrain = holiday.generateMap();
 	} else if (choice == 2){
+		// for now, ask for user name and load the player
+		// echo stats to the sreen
 		// try to open the map file and handle errors appropriately
 		cout << "Let's see the map ....\n";
 		holiday.readMap(map_file);
@@ -92,11 +96,13 @@ int main() {
 		cout << "0: save and quit\n";
 		cout << "1: move player\n";
 		cout << "2: view map\n";
+		cout << "3: show player information\n";
 		
 		cin >> choice;
 		switch (choice) {
 			case 0: 
 				holiday.saveMap(map_file);
+				// save player info
 				return 0; 
 				break;
 			case 1:
@@ -108,6 +114,9 @@ int main() {
 				cout << "The map so far...." << endl;
 				holiday.printMap();
 				break;
+			case 3: 
+				cout << "Current player status: " << endl;
+				cout << "(Not implemented yet)" << endl;
 			default:
 				cout << "Hopefully, we'll never get here\n";
 				
