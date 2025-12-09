@@ -3,6 +3,7 @@
 #include <cstdlib> 
 #include <string>
 #include <vector>
+#include <ctime>
 #include "gmap.hpp"
 #include "challenge.hpp"
 #include "player.hpp"
@@ -68,6 +69,18 @@ int main() {
 	
 	// start game
 	cout << "\nWelcome to the Wellness RPG!\n";
+	time_t now = time(0);
+	cout << "Date is: " << ctime(&now) << endl;
+	
+	
+	// create a log file for today?
+	tm* local_t = localtime(&now);
+	string logfile = to_string((local_t->tm_year + 1900));
+	logfile = logfile + to_string((local_t->tm_mon + 1));
+	logfile = logfile + to_string(local_t->tm_mday) + ".log";
+	cout << "Log file would be named: " << logfile << endl; 
+	
+	
 	cout << "What is your user login? " << endl;
 	cin >> user;
 	
