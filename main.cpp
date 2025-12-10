@@ -53,7 +53,17 @@ int addChallenge(int terrain) {
 
 int main() {
 
-	srand(time(0));
+	srand(time(0));               // set up the RNG
+	
+	// send errors to a log file
+	ofstream errorFile("error_log.txt");
+	if (!errorFile.is_open()) {
+		cerr << "Failed to open error log for saving errors" << endl;
+		cerr << "(Yes, extra points for the irony of this message ...)" << endl;
+		exit(1);	
+	}
+	cerr.rdbuf(errorFile.rdbuf());
+	cerr << "Check that this went to a file." << endl;
 
 	// char status = 'n';
 	int choice = 0;
@@ -64,8 +74,6 @@ int main() {
 	int terrain = 0;
 	
 	string user = "";
-	ifstream user_in;
-	ofstream user_save_file;   //both will use the same file name so close the input before saving
 	
 	// start game
 	cout << "\nWelcome to the Wellness RPG!\n";
@@ -74,11 +82,19 @@ int main() {
 	
 	
 	// create a log file for today?
+	// using public data fields in the tm struct
 	tm* local_t = localtime(&now);
-	string logfile = to_string((local_t->tm_year + 1900));
+	string logfile = "logs/" + to_string((local_t->tm_year + 1900));
 	logfile = logfile + to_string((local_t->tm_mon + 1));
 	logfile = logfile + to_string(local_t->tm_mday) + ".log";
-	cout << "Log file would be named: " << logfile << endl; 
+	cout << "Today's log file saved in: " << logfile << endl; 
+	ofstream todays_log;
+	todays_log.open(logfile);
+	
+	if (todays_log.fail()) {
+		cerr << "Could not open the log file: " << logfile << endl;
+		exit(1);
+	}
 	
 	
 	cout << "What is your user login? " << endl;
@@ -158,7 +174,12 @@ int main() {
 	
 	cout << "Current map:" << endl;
 	holiday.printMap();
-	cout << "Player is on terrain type: " << terrain << endl;
+	cout << "Player is on terrain type: " << holiday.getPlayerTerrain() << endl;
 
+	if (errorFile.is_open())
+		errorFile.close(); 
+		
+	if (todays_log.is_open())
+		todays_log.close();
 	return 0;
 }
