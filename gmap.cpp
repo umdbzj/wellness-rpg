@@ -61,7 +61,7 @@ using namespace std;
 								cout << " _ ";
 								break;
 							case 1:
-								cout << " # ";
+								cout << FOREST;
 								break;
 							case 2:
 								cout << " \" ";

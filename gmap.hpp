@@ -7,6 +7,8 @@
 #define SIZE 35
 #define NUM_TERRAIN 9
 
+#define FOREST "\033[42m   \033[0m"
+
 using namespace std;
 
 class Gmap {
