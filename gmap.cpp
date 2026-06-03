@@ -16,6 +16,16 @@ using namespace std;
 			px = 0;
 			py = 0; 
 			
+			terrains[0]  = "teleportation circle";
+			terrains[1] = "forest";
+			terrains[2] = "grass lands";
+			terrains[3] = "a crossroads";
+			terrains[4] = "lake";
+			terrains[5] = "bog";
+			terrains[6] = "mountains";
+			terrains[7] = "scene of a medical emergency";
+			terrains[8] = "a village";
+			
 		} // constructor
 		
 		Gmap::~Gmap() {
@@ -39,10 +49,11 @@ using namespace std;
 		
 		void Gmap::printMap() {
 			int terrain = board[px][py];
+			// cout << "\033[31mCurrent Game Map\033[0m" << endl;
 			for (int i = 0; i < SIZE; i++) {
 				for (int j = 0; j < SIZE; j++) {
 					if (px == i && py == j) {
-						cout << " P ";
+						cout << "\033[31m P \033[0m";
 					} else {
 						terrain = board[i][j];
 						switch (terrain) {
@@ -50,7 +61,7 @@ using namespace std;
 								cout << " _ ";
 								break;
 							case 1:
-								cout << " # ";
+								cout << FOREST;
 								break;
 							case 2:
 								cout << " \" ";
@@ -254,6 +265,15 @@ using namespace std;
 				default:
 					cout << "You are standing in a featureless void.  How did you get here?\n";
 			}
+			
+		}
+		
+		string Gmap::getPlayerTerrain() {
+			int loc_num = board[px][py];
+			if (loc_num < 0 || loc_num > 8)
+				return "dense fog"; 
+				
+			return terrains[loc_num];
 			
 		}
 

@@ -1,12 +1,15 @@
 CC = g++
 CFLAGS = -Wall -std=c++14
 
-test: main.o gmap.o challenge.o
-	$(CC) $(CFLAGS) -o test main.o gmap.o challenge.o
+test: main.o gmap.o challenge.o player.o
+	$(CC) $(CFLAGS) -o test main.o gmap.o challenge.o player.o
 	
-main.o: main.cpp gmap.hpp challenge.hpp
+main.o: main.cpp gmap.hpp challenge.hpp player.hpp
 	$(CC) $(CFLAGS) -c main.cpp
 	
+player.o: player.cpp player.hpp
+	$(CC) $(CFLAGS) -c player.cpp
+
 gmap.o: gmap.cpp gmap.hpp
 	$(CC) $(CFLAGS) -c gmap.cpp
 
