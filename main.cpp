@@ -79,6 +79,7 @@ int main() {
 	cout << "\nWelcome to the Wellness RPG!\n";
 	time_t now = time(0);
 	cout << "Date is: " << ctime(&now) << endl;
+	cout << "It is SUMMER ... and time to get outside!\n";
 	
 	
 	// create a log file for today?
